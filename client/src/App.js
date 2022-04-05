@@ -1,5 +1,6 @@
+import React from 'react';
+
 function App() {
-  var a= 1;
   return (
     <div className="App">
       <h1>dev-interview-helper</h1>
