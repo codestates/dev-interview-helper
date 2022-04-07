@@ -1,10 +1,11 @@
 const { User } = require("../models");
+const bcrypt = require("bcrypt");
 
 const {
   generateAccessToken,
   sendAccessToken,
   checkAccessToken,
-} = require("../functions/jwtToken");
+} = require("./functions/jwtToken");
 
 const { hashPassword } = require("./functions/security");
 
@@ -50,7 +51,7 @@ module.exports = {
     try {
       const userInfo = await User.findOne({ where: { email } });
       if (!userInfo) {
-        return res.json({
+        return res.status(403).json({
           success: false,
           message: "이메일 또는 비밀번호가 잘못되었습니다",
         });
@@ -60,14 +61,16 @@ module.exports = {
         userInfo.dataValues.password
       );
       if (!match) {
-        return res.json({
+        return res.status(403).json({
           success: false,
           message: "이메일 또는 비밀번호가 잘못되었습니다",
         });
       }
+      const newAccessToken = generateAccessToken(userInfo.dataValues);
+      sendAccessToken(res, newAccessToken);
 
       return res
-        .status(201)
+        .status(200)
         .json({ success: true, message: "로그인이 완료되었습니다" });
     } catch (err) {
       console.error(err);
