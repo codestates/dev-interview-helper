@@ -2,9 +2,11 @@ import styled from 'styled-components';
 
 const CardsContainner = styled.section`
   display: flex;
-  width: 70%;
+  margin-left: 20px;
+  width: 75%;
   flex-wrap: wrap;
   padding-top: 3rem;
+  align-items: center;
   justify-content: space-between;
   position: relative;
   margin: auto;
@@ -23,6 +25,15 @@ const CardsContainner = styled.section`
     top: 0rem;
     right: 1.1rem;
     cursor: pointer;
+  }
+  @media screen and (max-width: 1360px) {
+    width: 80%;
+  }
+  @media screen and (max-width: 900px) {
+    width: 95%;
+  }
+  @media screen and (max-width: 760px) {
+    justify-content: center;
   }
 `;
 export default CardsContainner;

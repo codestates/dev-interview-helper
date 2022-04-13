@@ -1,8 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useQuery } from 'react-query';
 import { logOutApi } from '../api/user';
 import {
@@ -10,7 +9,6 @@ import {
   HeaderNavbar,
   Logo,
   Rightmenu,
-  SearchBtn,
 } from '../styles/HeaderStyle';
 import { LOG_OUT_SUCCESS } from '../reducers/user';
 
@@ -23,9 +21,6 @@ function Header() {
   });
 
   const { me } = useSelector((state) => state.user);
-
-  // console.log('여기는 헤더:', me.data);
-  // console.log('여기는 헤더:', me.username);
 
   const handleLogout = async () => {
     await refetch();
@@ -48,15 +43,7 @@ function Header() {
             </>
           </Link>
         </Logo>
-
         <Rightmenu>
-          <form className="search">
-            <label htmlFor="search-input" />
-            <input id="search-input" type="text" placeholder="Search" />
-            <SearchBtn type="submit">
-              <FontAwesomeIcon icon={faSearch} className="search-img" />
-            </SearchBtn>
-          </form>
           <div className="menu">
             {me ? (
               <>

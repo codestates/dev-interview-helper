@@ -18,12 +18,11 @@ router.delete('/', signout);
 router.post('/login', login);
 //로그아웃
 router.get('/logout', logout);
-//토근 인증
+//토큰 인증
 router.get('/token', auth);
 // 회원정보 수정 (이름)
 router.patch('/username', editUsername);
 // 회원정보 수정 (패스워드)
 router.patch('/password', editPwd);
-// 회원탈퇴
 
 module.exports = router;

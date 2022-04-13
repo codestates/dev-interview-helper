@@ -146,13 +146,14 @@ module.exports = {
       next(error);
     }
   },
+
   deleteCard: async (req, res, next) => {
     try {
       const userInfo = await isAuth(req, res);
       if (!userInfo) {
         return res.status(400).json({ message: '로그인 하셔야합니다.' });
       }
-
+      console.log(req.params.cardId);
       const card = await Card.destroy({
         where: {
           id: req.params.cardId,
@@ -162,9 +163,36 @@ module.exports = {
       if (!card) {
         return res.status(403).send('카드가 존재하지 않습니다.');
       }
-      return res.status(200).json({ CardId: Number(req.params.cardId) });
+      return res.status(200).json({ message: 'ok' });
     } catch (error) {
       console.error(error);
+      res.status(500).json({ message: 'server error' });
+      next(error);
+    }
+  },
+
+  editCard: async (req, res, next) => {
+    try {
+      const userInfo = await isAuth(req, res);
+      if (!userInfo) {
+        return res.status(400).json({ message: '로그인 하셔야합니다.' });
+      }
+      const { question, answer, cardId } = req.body;
+      await Card.update(
+        {
+          question,
+          answer,
+        },
+        {
+          where: {
+            id: cardId,
+          },
+        },
+      );
+      return res.status(200).json({ message: 'ok' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'server error' });
       next(error);
     }
   },

@@ -27,9 +27,11 @@
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
+    "react-slick": "^0.28.1",
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
@@ -51,7 +53,8 @@
       "react/prop-types": 0,
       "no-param-reassign": 0,
       "default-param-last": 0,
-      "react/destructuring-assignment":0
+      "react/destructuring-assignment": 0,
+      "react/jsx-props-no-spreading":0
     },
     "env": {
       "browser": true,

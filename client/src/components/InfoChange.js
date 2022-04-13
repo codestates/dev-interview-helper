@@ -17,23 +17,21 @@ const InfoChangeComponent = styled.section`
 `;
 
 const Info = styled.div`
-  flex-direction: column;
   width: 100%;
   margin-top: 10px;
   margin-left: 10px;
-  width: 100%;
-  display: flex;
   font-size: 13px;
   .delete-btn {
     background-color: #c0392b;
   }
   button {
+    width: 80%;
     margin-left: 0px;
     margin-right: 5px;
     padding: 5px 10px;
   }
   hr {
-    width: 100%;
+    width: 80%;
     padding-top: 1px;
     background-color: black;
     margin: 6px 0px;
@@ -49,7 +47,7 @@ const Info = styled.div`
     border-radius: 3px;
     background-color: #fbfbfd;
     font-size: 12px;
-    width: 100%;
+    width: 80%;
     height: 30px;
     border: 1px solid #0078ff;
     margin-top: 5px;

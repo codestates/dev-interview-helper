@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router';
 import Card from './Card';
 import CardsContainner from '../styles/CardsStyle';
 
@@ -17,13 +18,18 @@ const ImageBox = styled.div`
   margin: auto;
 `;
 function ShareCards() {
+  const navigate = useNavigate();
   const { me } = useSelector((state) => state.user);
   return (
     <CardsContainner>
       {me ? (
         <>
           {' '}
-          <button className="studyBtn" type="button">
+          <button
+            onClick={() => navigate('/study')}
+            className="studyBtn"
+            type="button"
+          >
             학습하러 가기
           </button>
           {me.Shared.map((cardInfo) => {
