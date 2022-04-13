@@ -4,12 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import Confirm from './Confirm';
-// import { Link, useNavigate } from 'react-router-dom';
 import { editNameApi, deleteUserApi, changePWDApi } from '../api/user';
 import { EDIT_NAME_SUCCESS } from '../reducers/user';
 import { DELETE_USER_SUCCESS } from '../reducers/card';
-
-// useMutation : 값을 바꿀때 사용하는 api
 
 const InfoChangeComponent = styled.section`
   display: flex;
